@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { Manrope } from 'next/font/google';
 
 import './global.css';
@@ -14,7 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={manrope.className}>
-      <body>{children}</body>
+      <Head>
+        <title>Frontend Mentor | Advice generator app</title>
+      </Head>
+      <body>
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
