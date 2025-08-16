@@ -1,5 +1,7 @@
 import { Manrope } from 'next/font/google';
 
+import './global.css';
+
 const manrope = Manrope({
   subsets: ['latin'],
   weight: '800',

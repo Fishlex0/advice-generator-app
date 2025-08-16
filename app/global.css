@@ -14,4 +14,6 @@
 
 body {
   font-family: var(--main-font);
+  color: var(--primary-blue);
+  background-color: var(--neutral-dark-blue);
 }
