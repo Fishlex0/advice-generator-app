@@ -17,6 +17,8 @@ export default function RootLayout({
     <html lang="en" className={manrope.className}>
       <Head>
         <title>Frontend Mentor | Advice generator app</title>
+        <link rel="preconnect" href="https://api.adviceslip.com" />
+        <link rel="dns-prefetch" href="https://api.adviceslip.com" />
       </Head>
       <body>
         <main>{children}</main>

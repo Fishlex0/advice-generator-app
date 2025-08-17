@@ -21,7 +21,6 @@ export default function Page() {
         cache: 'no-cache',
       });
       const adviceData = await data.json();
-
       const validatedAdvice = AdviceSchema.parse(adviceData);
 
       setAdviceData(validatedAdvice.slip);
