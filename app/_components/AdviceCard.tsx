@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { AdviceSchema } from '../page';
+import { AdviceSchema } from '../lib/adviceSchema';
 import Image from 'next/image';
 
 interface AdviceCardProps {

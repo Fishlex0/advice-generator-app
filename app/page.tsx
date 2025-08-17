@@ -1,13 +1,7 @@
-import { z } from 'zod';
-
+import { AdviceSchema } from './lib/adviceSchema';
 import AdviceCard from './_components/AdviceCard';
 
-export const AdviceSchema = z.object({
-  slip: z.object({
-    id: z.number(),
-    advice: z.string(),
-  }),
-});
+export const dynamic = 'force-dynamic';
 
 async function getInitialAdvice() {
   try {
