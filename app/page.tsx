@@ -1,47 +1,37 @@
-'use client';
-
-import { useState, useEffect } from 'react';
 import { z } from 'zod';
 
 import AdviceCard from './_components/AdviceCard';
 
-const AdviceSchema = z.object({
+export const AdviceSchema = z.object({
   slip: z.object({
     id: z.number(),
     advice: z.string(),
   }),
 });
 
-export default function Page() {
-  const [adviceData, setAdviceData] = useState(null);
+async function getInitialAdvice() {
+  try {
+    const response = await fetch('https://api.adviceslip.com/advice', {
+      cache: 'no-store',
+    });
+    const jsonData = await response.json();
+    const parsedData = AdviceSchema.parse(jsonData);
 
-  const fetchAdvice = async () => {
-    try {
-      const data = await fetch('https://api.adviceslip.com/advice', {
-        cache: 'no-cache',
-      });
-      const adviceData = await data.json();
-      const validatedAdvice = AdviceSchema.parse(adviceData);
+    return parsedData;
+  } catch (error) {
+    console.log('Encountered error while fetching the advice:', error);
+  }
+}
 
-      setAdviceData(validatedAdvice.slip);
-    } catch (err) {
-      console.error('Failed to fetch advice:', err);
-    }
-  };
-
-  useEffect(() => {
-    fetchAdvice();
-  }, []);
+export default async function Page() {
+  const initialData = await getInitialAdvice();
 
   return (
     <div className="center-on-screen">
-      {adviceData && (
-        <AdviceCard
-          adviceNumber={adviceData.id}
-          advice={adviceData.advice}
-          onRefresh={fetchAdvice}
-        />
-      )}
+      <AdviceCard
+        adviceNumber={initialData.slip.id}
+        advice={initialData.slip.advice}
+      />
     </div>
   );
 }
