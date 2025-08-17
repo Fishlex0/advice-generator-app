@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { Manrope } from 'next/font/google';
 
 import './global.css';
@@ -8,6 +7,10 @@ const manrope = Manrope({
   weight: '800',
 });
 
+export const metadata = {
+  title: 'Frontend Mentor | Advice generator app',
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -15,11 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={manrope.className}>
-      <Head>
+      <head>
         <title>Frontend Mentor | Advice generator app</title>
         <link rel="preconnect" href="https://api.adviceslip.com" />
         <link rel="dns-prefetch" href="https://api.adviceslip.com" />
-      </Head>
+      </head>
       <body>
         <main>{children}</main>
       </body>
