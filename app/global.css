@@ -10,10 +10,129 @@
   --main-font: 'Manrope', sans-serif;
   --quote-font-size: 28px;
   --quote-font-weight: 800;
+
+  /* MEDIA QUERIS */
+  --tablet-size: 768px;
+  --desktop-size: 1440px;
 }
 
 body {
   font-family: var(--main-font);
   color: var(--primary-blue);
+
   background-color: var(--neutral-dark-blue);
+
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  border: none;
+}
+
+.center-on-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+
+  padding: 0 16px 0 16px;
+}
+
+/* Advice Card classes */
+.container {
+  max-width: 540px;
+  max-height: 314px;
+
+  padding-top: 40px;
+  display: grid;
+
+  background-color: var(--neutral-blue);
+
+  place-items: center;
+
+  padding-left: 23.5px;
+  padding-right: 23.5px;
+
+  border-radius: 24px;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  gap: 16px;
+
+  text-align: center;
+}
+
+.adviceNumber {
+  color: var(--primary-green);
+
+  font-size: 13px;
+  letter-spacing: 4px;
+  line-height: 135%;
+
+  text-transform: uppercase;
+}
+
+.advice {
+  font-size: 24px;
+  line-height: 135%;
+  letter-spacing: -0.3px;
+}
+
+.dividerContainer {
+  margin-top: 32px;
+  position: relative;
+  width: 296px;
+  height: 16px;
+}
+
+.advice-button {
+  width: 64px;
+  height: 64px;
+
+  background-color: var(--primary-green);
+
+  border-radius: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform: translateY(32px);
+
+  transition: filter 0.3s ease;
+  cursor: pointer;
+}
+
+.advice-button:hover {
+  filter: drop-shadow(0px 0px 10px #53ffaa);
+}
+
+@media (min-width: 768px) {
+  .container {
+    margin-top: 48px;
+
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .textContainer {
+    gap: 24px;
+  }
+
+  .dividerContainer {
+    width: 444px;
+  }
+
+  .advice {
+    font-size: 28px;
+  }
 }
